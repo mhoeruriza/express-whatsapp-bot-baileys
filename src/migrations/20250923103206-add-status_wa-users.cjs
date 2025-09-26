@@ -1,0 +1,24 @@
+'use strict';
+
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+    async up(queryInterface, Sequelize) {
+        await queryInterface.addColumn('users', 'whatsapp_status', {
+            type: Sequelize.STRING(50),
+            allowNull: true,
+        });
+        await queryInterface.addColumn('users', 'whatsapp_qrcode', {
+            type: Sequelize.TEXT,
+            allowNull: true,
+        });
+    },
+
+    async down(queryInterface, Sequelize) {
+        /**
+         * Add reverting commands here.
+         *
+         * Example:
+         * await queryInterface.dropTable('users');
+         */
+    }
+};
